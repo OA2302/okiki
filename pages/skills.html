@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-…" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        canvas#skillsChart {
+            max-width: 80%;
+            margin: 20px auto;
+        }
+
+        @keyframes waterSwim {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            25% {
+                transform: translateY(-5px);
+            }
+            50% {
+                transform: translateY(5px);
+            }
+            75% {
+                transform: translateY(-3px);
+            }
+        }
+
+        .chartjs-render-monitor .bar {
+            animation: waterSwim 1s ease-in-out infinite;
+        }
+
+        /* Custom colors for icons */
+        .skill-item i.fab.fa-html5 {
+            color: #E44D26; /* HTML color */
+        }
+
+        .skill-item i.fab.fa-css3 {
+            color: #1572B6; /* CSS color */
+        }
+
+        .skill-item i.fab.fa-js {
+            color: #F7DF1E; /* JavaScript color */
+        }
+
+        .skill-item i.fab.fa-react {
+            color: #61DAFB; /* React color */
+        }
+
+        .skill-item i.fab.fa-python {
+            color: #3776AB; /* Python color */
+        }
+    </style>
+    <title>My Skills</title>
+</head>
+<body>
+    <header>
+        <div class="me">
+            <img src="../assests/images/me.jpg" alt="me">
+            <h1>Adenekan <br>Okikioluwa</h1>
+        </div>
+        <p style="margin-top: 10px; margin-bottom: 10px;">I am a passionate web developer showcasing my skills.</p>
+        <ul>
+            <li><a href="../index.html" class="cta-button">Home</a></li>
+            <li><a href="portfolio.html" class="cta-button">Projects</a></li>
+            <li><a href="contact.html" class="cta-button">Contact Me</a></li>
+        </ul>
+    </header>
+
+    <h2 style="text-align: center;">My Technical Skills</h2>
+
+    <section class="skills">
+        <div class="skill-item">
+            <i class="fab fa-html5"></i>
+            <span>HTML</span>
+        </div>
+        <div class="skill-item">
+            <i class="fab fa-css3"></i>
+            <span>CSS</span>
+        </div>
+        <div class="skill-item">
+            <i class="fab fa-js"></i>
+            <span>JavaScript</span>
+        </div>
+        <div class="skill-item">
+            <i class="fab fa-react"></i>
+            <span>React</span>
+        </div>
+        <div class="skill-item">
+            <i class="fab fa-python"></i>
+            <span>Python</span>
+        </div>
+
+        <!-- Chart container with updated size -->
+        <canvas id="skillsChart" width="400" height="200"></canvas>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 OA2302. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('skillsChart').getContext('2d');
+        var skillsChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['HTML', 'CSS', 'JavaScript', 'React', 'Python'],
+                datasets: [{
+                    label: 'Skill Proficiency',
+                    data: [90, 80, 85, 75, 70], // Update with your proficiency levels
+                    backgroundColor: [
+                        'rgba(255, 99, 71, 0.5)',
+                        'rgba(30, 144, 255, 0.5)',
+                        'rgba(255, 215, 0, 0.5)',
+                        'rgba(0, 191, 255, 0.5)',
+                        'rgba(70, 130, 180, 0.5)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
